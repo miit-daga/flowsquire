@@ -1,0 +1,56 @@
+{
+    "name": "flowsquire",
+    "version": "1.0.0",
+    "description": "Local-first automation platform for organizing files on your computer. No cloud, no AI, no subscriptions — just simple WHEN → DO workflows.",
+    "main": "dist/index.js",
+    "bin": {
+        "flowsquire": "dist/cli.js"
+    },
+    "files": [
+        "dist/",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsx src/cli.ts start",
+        "start": "node dist/cli.js start",
+        "test": "vitest",
+        "prepublishOnly": "npm run build"
+    },
+    "keywords": [
+        "automation",
+        "file-organizer",
+        "workflow",
+        "macos",
+        "file-management",
+        "productivity",
+        "cli",
+        "screenshot-organizer",
+        "pdf-organizer",
+        "downloads-organizer"
+    ],
+    "author": "Miit Daga <miit.daga@example.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/miit-daga/flowsquire.git"
+    },
+    "bugs": {
+        "url": "https://github.com/miit-daga/flowsquire/issues"
+    },
+    "homepage": "https://github.com/miit-daga/flowsquire#readme",
+    "dependencies": {
+        "chokidar": "^3.5.3",
+        "express": "^4.18.2",
+        "cors": "^2.8.5",
+        "zod": "^3.22.4"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.0",
+        "@types/express": "^4.17.21",
+        "@types/cors": "^2.8.17",
+        "typescript": "^5.3.3",
+        "tsx": "^4.7.0",
+        "vitest": "^1.2.0"
+    }
+}
