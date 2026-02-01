@@ -218,7 +218,7 @@ Rules are stored in `.flowsquire/rules.json`:
 
 ```bash
 # Clone repo
-git clone <repo-url>
+git clone git@github.com:miit-daga/flowsquire.git
 cd flowsquire
 
 # Install dependencies
