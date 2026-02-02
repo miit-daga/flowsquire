@@ -120,6 +120,7 @@ async function initWithTemplates() {
   };
   
   // Rule 1: Large PDF Compression (Priority 500 - highest, only for files > 8MB)
+  // Smart compression: detects category, moves original, then compresses to PDFs/{category}/Compressed/
   const largePdfCompressionRule: Rule = {
     id: randomUUID(),
     name: 'Large PDF Compression',
@@ -135,10 +136,19 @@ async function initWithTemplates() {
       { type: 'size_greater_than_mb', operator: 'equals', value: 8 },
     ],
     actions: [
+      // First: Move original to category folder
+      {
+        type: 'move',
+        config: {
+          destination: `${isNestedMode ? '{downloads}' : '{documents}'}/PDFs/{category}`,
+          createDirs: true,
+        },
+      },
+      // Second: Compress to Compressed/ subfolder
       {
         type: 'compress',
         config: {
-          destination: pdfDestinations.compressed,
+          destination: `${isNestedMode ? '{downloads}' : '{documents}'}/PDFs/{category}/Compressed`,
           pattern: '{filename}_compressed',
           createDirs: true,
           compress: {

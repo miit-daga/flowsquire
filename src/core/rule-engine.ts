@@ -86,6 +86,39 @@ export function findMatchingRules(rules: Rule[], filePath: string): Rule[] {
     .filter(rule => evaluateConditions(rule.conditions, filePath));
 }
 
+// Helper function to detect PDF category from filename
+function detectPdfCategory(fileName: string): string {
+  const lowerFileName = fileName.toLowerCase();
+  
+  // Finance / Invoices
+  if (lowerFileName.includes('invoice')) return 'Invoices';
+  if (lowerFileName.includes('bill')) return 'Invoices';
+  if (lowerFileName.includes('payment')) return 'Invoices';
+  if (lowerFileName.includes('receipt')) return 'Invoices';
+  if (lowerFileName.includes('tax')) return 'Invoices';
+  
+  // Finance / Banking
+  if (lowerFileName.includes('bank')) return 'Finance';
+  if (lowerFileName.includes('statement')) return 'Finance';
+  if (lowerFileName.includes('transaction')) return 'Finance';
+  if (lowerFileName.includes('finance')) return 'Finance';
+  if (lowerFileName.includes('credit')) return 'Finance';
+  if (lowerFileName.includes('debit')) return 'Finance';
+  
+  // Study / Education
+  if (lowerFileName.includes('notes')) return 'Study';
+  if (lowerFileName.includes('note')) return 'Study';
+  if (lowerFileName.includes('lecture')) return 'Study';
+  if (lowerFileName.includes('study')) return 'Study';
+  if (lowerFileName.includes('class')) return 'Study';
+  if (lowerFileName.includes('course')) return 'Study';
+  if (lowerFileName.includes('assignment')) return 'Study';
+  if (lowerFileName.includes('homework')) return 'Study';
+  if (lowerFileName.includes('exam')) return 'Study';
+  
+  return 'Unsorted';
+}
+
 export async function executeActions(
   actions: Action[],
   sourcePath: string,
@@ -121,8 +154,14 @@ async function executeAction(
     const config = await loadConfig();
     
     const fileName = path.basename(sourcePath);
+    
+    // Detect PDF category for smart compression
+    const category = detectPdfCategory(fileName);
+    
     // Pass metadata to replaceTemplateVariables to handle {app} and {domain}
+    // Also replace {category} placeholder for PDF compression
     let destinationPath = replaceTemplateVariables(action.config.destination, config, metadata);
+    destinationPath = destinationPath.replace(/{category}/g, category);
 
     // If destination is a directory (no extension) AND no pattern is provided, append the filename
     // Don't append if pattern is present - applyPattern will handle the full path

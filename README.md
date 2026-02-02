@@ -72,16 +72,29 @@ Automatically organizes PDFs based on filename and size:
 
 | Priority | Rule | Condition | Nested Mode Destination | System Mode Destination |
 |----------|------|-----------|------------------------|------------------------|
-| 500 | Large PDF Compression | > 8MB | `~/Downloads/PDFs/Compressed/` | `~/Documents/PDFs/Compressed/` |
-| 400 | Invoice Organizer | name contains "invoice" | `~/Downloads/PDFs/Invoices/` | `~/Documents/PDFs/Invoices/` |
-| 300 | Bank Statement | name contains "bank" | `~/Downloads/PDFs/Finance/` | `~/Documents/PDFs/Finance/` |
-| 200 | Study Notes | name contains "notes" | `~/Downloads/PDFs/Study/` | `~/Documents/PDFs/Study/` |
+| 500 | Large PDF Compression | > 8MB | `~/Downloads/PDFs/{category}/Compressed/` | `~/Documents/PDFs/{category}/Compressed/` |
+| 400 | Invoice Organizer | invoice, bill, payment, receipt, tax | `~/Downloads/PDFs/Invoices/` | `~/Documents/PDFs/Invoices/` |
+| 300 | Bank Statement | bank, statement, transaction, finance, credit, debit | `~/Downloads/PDFs/Finance/` | `~/Documents/PDFs/Finance/` |
+| 200 | Study Notes | notes, note, lecture, study, class, course, assignment, homework, exam | `~/Downloads/PDFs/Study/` | `~/Documents/PDFs/Study/` |
 | 100 | Default | any PDF | `~/Downloads/PDFs/Unsorted/` | `~/Documents/PDFs/Unsorted/` |
 
 **Features:**
 - Cross-platform Ghostscript support (macOS/Linux: `gs`, Windows: `gswin64c`)
 - Quality levels: screen (low), ebook (medium), printer (high)
 - Date pattern support: `{filename}_{YYYY}-{MM}-{DD}`
+
+**Smart Compression:**
+Large PDFs (>8MB) are automatically categorized before compression:
+- Original file → `PDFs/{category}/`
+- Compressed copy → `PDFs/{category}/Compressed/`
+
+Categories detected from filename:
+- **Invoices:** invoice, bill, payment, receipt, tax
+- **Finance:** bank, statement, transaction, finance, credit, debit  
+- **Study:** notes, note, lecture, study, class, course, assignment, homework, exam
+- **Unsorted:** Everything else
+
+Example: `invoice_large.pdf` (10MB) → `PDFs/Invoices/invoice_large.pdf` + `PDFs/Invoices/Compressed/invoice_large_compressed.pdf`
 
 ### Downloads Organizer (7 rules)
 
