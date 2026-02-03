@@ -172,7 +172,7 @@ async function initWithTemplates() {
     },
     conditions: [
       { type: 'extension', operator: 'equals', value: 'pdf' },
-      { type: 'name_contains', operator: 'equals', value: 'invoice' },
+      { type: 'name_contains', operator: 'in', value: ['invoice', 'bill', 'receipt', 'rechnung', 'facture', 'factura', 'fattura', 'fatura', 'factuur', 'счет', 'счёт', '发票', '請求書', '세금계산서', '영수증', 'فاتورة'] },
     ],
     actions: [
       {
@@ -201,7 +201,7 @@ async function initWithTemplates() {
     },
     conditions: [
       { type: 'extension', operator: 'equals', value: 'pdf' },
-      { type: 'name_contains', operator: 'equals', value: 'bank' },
+      { type: 'name_contains', operator: 'in', value: ['bank', 'statement', 'transaction', 'bank', 'kontoauszug', 'banque', 'relevé', 'banco', 'estado de cuenta', 'banca', 'estratto conto', 'banco', 'extrato', 'bank', 'afschrift', 'банк', 'выписка', '银行', '账单', '对账单', '銀行', '明細', '明細書', '은행', '거래내역', '명세서', 'بنك', 'كشف حساب'] },
     ],
     actions: [
       {
@@ -230,7 +230,7 @@ async function initWithTemplates() {
     },
     conditions: [
       { type: 'extension', operator: 'equals', value: 'pdf' },
-      { type: 'name_contains', operator: 'equals', value: 'notes' },
+      { type: 'name_contains', operator: 'in', value: ['notes', 'study', 'college', 'university', 'lecture', 'notizen', 'studium', 'universität', 'notes', 'études', 'université', 'apuntes', 'estudio', 'universidad', 'appunti', 'studio', 'università', 'notas', 'estudo', 'universidade', 'notities', 'studie', 'universiteit', 'заметки', 'учеба', 'университет', '笔记', '学习', '大学', '课程', 'ノート', '勉強', '大学', '講義', '노트', '공부', '대학', '수업', 'ملاحظات', 'دراسة', 'جامعة'] },
     ],
     actions: [
       {
