@@ -320,7 +320,7 @@ async function initWithTemplates() {
       config: { folder: '{downloads}' },
     },
     conditions: [
-      { type: 'extension', operator: 'in', value: ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'] },
+      { type: 'extension', operator: 'in', value: ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'heic', 'heif', 'bmp', 'tiff', 'tif', 'ico', 'raw', 'cr2', 'nef', 'arw', 'dng', 'orf', 'rw2'] },
     ],
     actions: [
       {
@@ -347,7 +347,7 @@ async function initWithTemplates() {
       config: { folder: '{downloads}' },
     },
     conditions: [
-      { type: 'extension', operator: 'in', value: ['mp4', 'mov', 'avi', 'mkv'] },
+      { type: 'extension', operator: 'in', value: ['mp4', 'mov', 'avi', 'mkv', 'webm', 'flv', 'wmv', 'mpeg', 'mpg', 'm4v', '3gp', 'm2ts', 'ts', 'vob', 'ogv'] },
     ],
     actions: [
       {
@@ -374,7 +374,7 @@ async function initWithTemplates() {
       config: { folder: '{downloads}' },
     },
     conditions: [
-      { type: 'extension', operator: 'in', value: ['mp3', 'wav', 'flac', 'aac'] },
+      { type: 'extension', operator: 'in', value: ['mp3', 'wav', 'flac', 'aac', 'ogg', 'wma', 'm4a', 'aiff', 'aif', 'alac', 'opus', 'mka'] },
     ],
     actions: [
       {
@@ -401,7 +401,7 @@ async function initWithTemplates() {
       config: { folder: '{downloads}' },
     },
     conditions: [
-      { type: 'extension', operator: 'in', value: ['zip', 'rar', '7z', 'tar', 'gz'] },
+      { type: 'extension', operator: 'in', value: ['zip', 'rar', '7z', 'tar', 'gz', 'bz2', 'xz', 'lz', 'cab', 'iso', 'tgz', 'tbz2', 'txz', 'lzma', 'zst'] },
     ],
     actions: [
       {
@@ -428,7 +428,7 @@ async function initWithTemplates() {
       config: { folder: '{downloads}' },
     },
     conditions: [
-      { type: 'extension', operator: 'in', value: ['doc', 'docx', 'txt', 'rtf', 'xls', 'xlsx', 'ppt', 'pptx'] },
+      { type: 'extension', operator: 'in', value: ['doc', 'docx', 'txt', 'rtf', 'xls', 'xlsx', 'xlsm', 'xltx', 'xltm', 'ppt', 'pptx', 'ppsx', 'ppsm', 'potx', 'potm', 'dotx', 'dotm', 'odt', 'ods', 'odp', 'pages', 'numbers', 'key', 'md', 'markdown', 'csv', 'xml', 'json', 'yaml', 'yml', 'toml', 'ini', 'conf', 'cfg', 'env', 'log', 'epub', 'mobi', 'tex', 'bib'] },
     ],
     actions: [
       {
@@ -482,7 +482,7 @@ async function initWithTemplates() {
       config: { folder: '{downloads}' },
     },
     conditions: [
-      { type: 'extension', operator: 'in', value: ['js', 'ts', 'jsx', 'tsx', 'py', 'rb', 'go', 'rs', 'java', 'cpp', 'c', 'h'] },
+      { type: 'extension', operator: 'in', value: ['js', 'ts', 'jsx', 'tsx', 'mjs', 'cjs', 'py', 'pyc', 'pyo', 'rb', 'go', 'rs', 'java', 'class', 'jar', 'cpp', 'c', 'h', 'hpp', 'cs', 'php', 'swift', 'kt', 'kts', 'scala', 'sc', 'r', 'm', 'mat', 'sql', 'html', 'htm', 'xhtml', 'css', 'scss', 'sass', 'less', 'vue', 'svelte', 'astro', 'dart', 'lua', 'sh', 'bash', 'zsh', 'fish', 'ps1', 'psm1', 'psd1', 'bat', 'cmd', 'vbs', 'ahk', 'gradle', 'groovy', 'clj', 'cljs', 'edn', 'erl', 'hrl', 'ex', 'exs', 'fs', 'fsx', 'ml', 'mli', 'pas', 'pp', 'lisp', 'lsp', 'cl', 'el', 'vim', 'elisp', 'cr', 'nim', 'nims', 'zig', 'v', 'vsh'] },
     ],
     actions: [
       {
