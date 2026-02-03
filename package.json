@@ -1,6 +1,6 @@
 {
     "name": "flowsquire",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Local-first automation platform for organizing files on your computer. No cloud, no AI, no subscriptions — just simple WHEN → DO workflows.",
     "main": "dist/index.js",
     "bin": {
