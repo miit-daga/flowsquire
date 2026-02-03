@@ -2,6 +2,16 @@
 
 A local-first automation platform for organizing files on your computer. No cloud, no AI, no subscriptions — just simple WHEN → DO workflows.
 
+## Getting Started in 2 Minutes
+
+```bash
+npm install -g flowsquire
+flowsquire init      # 30 sec setup wizard
+flowsquire start     # Drop a file in ~/Downloads
+```
+
+That's it. Your files organize themselves.
+
 ## Features
 
 - **File Watching**: Automatically organize files as they appear
@@ -16,7 +26,7 @@ A local-first automation platform for organizing files on your computer. No clou
 ## Installation
 
 ```bash
-npm install -g flowsquire-agent
+npm install -g flowsquire
 ```
 
 ### Prerequisites
