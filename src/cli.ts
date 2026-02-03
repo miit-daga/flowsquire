@@ -26,9 +26,6 @@ async function main() {
     case 'rules':
       await listRules();
       break;
-    case 'run':
-      await runRule(args[1]);
-      break;
     case 'config':
       await handleConfigCommand(args.slice(1));
       break;
@@ -565,12 +562,6 @@ async function listRules() {
   }
 }
 
-async function runRule(ruleId: string | undefined) {
-  console.log('❌ The "run" command is not yet implemented.');
-  console.log('   Use "flowsquire start" to automatically process files based on rules.');
-  process.exit(1);
-}
-
 async function handleConfigCommand(args: string[]) {
   const config = await loadConfig();
   
@@ -716,6 +707,9 @@ async function runInteractiveSetup(config: FlowSquireConfig): Promise<void> {
     console.log(`✓ Documents folder set to: ${absoluteDocuments}\n`);
 
     // Question 3: Screenshots folder (for Shottr or native screenshots)
+    console.log('⚠️  Note: Using Desktop or Documents for screenshots may cause detection issues');
+    console.log('    due to macOS FSEvents limitations. For best results, use a custom folder');
+    console.log('    (e.g., ~/Downloads/Screenshots).\n');
     const defaultScreenshots = config.paths.screenshots;
     const screenshotsAnswer = await askQuestion(
       rl,

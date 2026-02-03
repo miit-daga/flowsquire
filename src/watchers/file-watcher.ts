@@ -1,7 +1,7 @@
 import chokidar from 'chokidar';
 import { Rule, RuleRun } from '../types/index.js';
 import { findMatchingRules, executeActions } from '../core/rule-engine.js';
-import { captureScreenshotMetadata, generateScreenshotFilename, generateScreenshotFolderPath } from '../core/screenshot-metadata.js';
+import { captureScreenshotMetadata } from '../core/screenshot-metadata.js';
 import { saveRun } from '../db/index.js';
 import { randomUUID } from 'crypto';
 import path from 'path';
