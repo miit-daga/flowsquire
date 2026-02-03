@@ -35,11 +35,14 @@ export interface Action {
   };
 }
 
+// TODO: RuleRun is currently recorded but never read/queried.
+// Keeping for potential future "history" command or debugging features.
+// Consider removing if no usage is added within the next few versions.
 export interface RuleRun {
   id: string;
   ruleId: string;
   status: 'pending' | 'running' | 'completed' | 'failed';
-  triggeredBy: 'file_event' | 'manual' | 'scheduled';
+  triggeredBy: 'file_event' | 'manual';
   filePath?: string;
   fileSize?: number;
   destinationPath?: string;
@@ -51,6 +54,8 @@ export interface RuleRun {
   error?: string;
 }
 
+// TODO: ActionResult is part of RuleRun tracking (currently unused).
+// Remove if RuleRun tracking is not implemented in CLI.
 export interface ActionResult {
   action: Action;
   status: 'pending' | 'success' | 'failed';

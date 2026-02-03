@@ -167,39 +167,3 @@ export function sanitizeForPath(input: string): string {
     .trim()
     .substring(0, 50);
 }
-
-/**
- * Generate organized filename from metadata
- */
-export function generateScreenshotFilename(
-  originalFilename: string,
-  metadata: ScreenshotMetadata
-): string {
-  const ext = originalFilename.substring(originalFilename.lastIndexOf('.'));
-  
-  const appName = sanitizeForPath(metadata.appName);
-  const windowTitle = sanitizeForPath(metadata.windowTitle);
-  const date = metadata.timestamp;
-  
-  const dateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-  const timeStr = `${String(date.getHours()).padStart(2, '0')}-${String(date.getMinutes()).padStart(2, '0')}-${String(date.getSeconds()).padStart(2, '0')}`;
-  
-  if (windowTitle && windowTitle !== 'Unknown' && windowTitle !== appName) {
-    return `${appName}_${windowTitle}_${dateStr}_${timeStr}${ext}`;
-  }
-  
-  return `${appName}_${dateStr}_${timeStr}${ext}`;
-}
-
-/**
- * Generate folder path from metadata
- */
-export function generateScreenshotFolderPath(metadata: ScreenshotMetadata): string {
-  const appName = sanitizeForPath(metadata.appName);
-  
-  if (metadata.domain) {
-    return `${appName}/${metadata.domain}`;
-  }
-  
-  return appName;
-}
